@@ -17,14 +17,15 @@ config = """
 :80 {
     root * /app/public
 
+    @notFile {
+        not file
+        not path /
+    }
+    rewrite @notFile /index.php
+
     php_server {
         index index.php
     }
-
-    @notFile {
-        not file
-    }
-    rewrite @notFile /index.php
 
     file_server
 }

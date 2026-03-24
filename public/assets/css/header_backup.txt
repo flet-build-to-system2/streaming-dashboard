@@ -1,0 +1,141 @@
+/* Backup of header.php CSS - without glassmorphism effects */
+
+:root {
+    --sky-50: #F0F9FF;
+    --sky-100: #E0F2FE;
+    --sky-200: #BAE6FD;
+    --sky-300: #7DD3FC;
+    --sky-400: #38BDF8;
+    --sky-500: #0EA5E9;
+    --sky-600: #0284C7;
+    --sky-700: #0369A1;
+    --bg-body: #F0F4F8;
+    --bg-card: #FFFFFF;
+    --bg-card-solid: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+    --border-focus: #38BDF8;
+    --sidebar-w: 260px;
+    --topbar-h: 64px;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --radius-xs: 6px;
+    --shadow-card: 0 2px 16px rgba(14, 165, 233, 0.06), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    background-image:
+        radial-gradient(ellipse at 10% 20%, rgba(186, 230, 253, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(186, 230, 253, 0.2) 0%, transparent 50%);
+    margin: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: linear-gradient(160deg, #0EA5E9 0%, #bd0202 50%, #9b0101 100%);
+    position: fixed;
+    color: white;
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+.main-content {
+    margin-right: var(--sidebar-w);
+    margin-top: var(--topbar-h);
+    flex: 1;
+    padding: 30px;
+}
+
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+}
+
+/* Topbar */
+.topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: var(--sidebar-w);
+    height: var(--topbar-h);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 100;
+}
+
+.search-box {
+    position: relative;
+    input {
+        padding: 8px 40px 8px 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: white;
+        width: 300px;
+    }
+    i {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+    }
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--sky-100);
+    color: var(--sky-600);
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    span {
+        font-weight: 500;
+    }
+    .logout-btn {
+        color: #EF4444;
+        text-decoration: none;
+        font-size: 14px;
+    }
+}
+
+/* Stat Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}

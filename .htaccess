@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# منع الوصول للملفات الحساسة
+<FilesMatch "\.(env|sql|log|md)$">
+    Require all denied
+</FilesMatch>
+
+# توجيه كافة الطلبات لمجلد public (ما ينطبق للشعارات public/* بصورة مباشرة)
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L,NC]

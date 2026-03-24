@@ -1,9 +1,6 @@
 [php]
 documentRoot = "public"
 
-[deploy]
-startCommand = "frankenphp run --config /etc/caddy/Caddyfile"
-
 [php.ini]
 display_errors = "Off"
 expose_php = "Off"

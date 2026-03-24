@@ -1,0 +1,34 @@
+[php]
+documentRoot = "public"
+
+[deploy]
+startCommand = "frankenphp run --config /etc/caddy/Caddyfile"
+
+[php.ini]
+display_errors = "Off"
+expose_php = "Off"
+upload_max_filesize = "32M"
+post_max_size = "32M"
+max_execution_time = "60"
+
+[caddy]
+config = """
+{
+    frankenphp
+}
+
+:80 {
+    root * /app/public
+
+    php_server {
+        index index.php
+    }
+
+    @notFile {
+        not file
+    }
+    rewrite @notFile /index.php
+
+    file_server
+}
+"""

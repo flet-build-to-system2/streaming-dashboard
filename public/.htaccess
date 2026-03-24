@@ -1,0 +1,10 @@
+# Routes non-file requests to index.php + blocks sensitive files
+<FilesMatch "\.(env|sql|log|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
